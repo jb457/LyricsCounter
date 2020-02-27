@@ -1,0 +1,13 @@
+﻿@model LyricsCounter.Web.Models.CompletedModel
+
+<h1>Completed!</h1>
+
+<div>
+    <p>Results for <strong>@Model.Results.Artist</strong></p>
+    <p>Songs Searched: @Model.Results.TracksCounted</p>
+    <p>Average Word Count: @Model.Results.AverageWordCount.ToString("0.##")</p>
+</div>
+
+<div>
+    <a asp-action="ArtistSearch">Go back to try again</a>
+</div>

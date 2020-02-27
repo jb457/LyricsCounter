@@ -1,0 +1,12 @@
+﻿@model LyricsCounter.Web.Models.InProgressModel
+
+<h1>In Progress</h1>
+
+<p>We are gathering results for @Model.Artist</p>
+
+<div>
+    <p>Current Progress: @Model.PercentComplete %</p>
+    <p>Results for <strong>@Model.Results.Artist</strong></p>
+    <p>Songs Searched: @Model.Results.TracksCounted</p>
+    <p>Average Word Count: @Model.Results.AverageWordCount.ToString("0.##")</p>
+</div>

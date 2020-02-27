@@ -1,0 +1,22 @@
+﻿@model LyricsCounter.Web.Models.InProgressModel
+
+@{
+    ViewData["Title"] = "InProgress";
+}
+
+<div id="placeHolder"></div>
+    
+<script>
+    //This is going to call the CurrentProgress action and replace the #placeholder div with the partial view result.
+    //which will either be an In Progress message, or a Completed Message
+    setInterval(function () {
+        console.log('starting loading partial');
+
+        $('#placeHolder').load('@Url.Action("CurrentProgress", "Lyric")');
+
+        console.log('finished loading partial');
+
+    }, 3000);
+
+</script>
+

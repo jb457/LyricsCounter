@@ -1,0 +1,48 @@
+﻿@model  LyricsCounter.Web.Models.ArtistLookupModel
+
+@{
+    ViewData["Title"] = "ArtistSearch";
+}
+
+<div class="text-center">
+    <h3>Search</h3>
+    <p>Enter the name of an artist</p>
+
+    <form asp-controller="Lyric" asp-action="ArtistSearch" method="post">
+        <div>
+            <label asp-for="Artist">Artist</label>
+            <span asp-validation-for="Artist"></span>
+            <input asp-for="Artist" />
+        </div>
+
+        <button type="submit">Search</button>
+
+    </form>
+</div>
+
+@if (Model.History != null && Model.History.Any())
+{
+<div id="history">
+    <h3>Previous Results:</h3>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Artist</th>
+                <th>Songs Counted</th>
+                <th>Average Words</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.History)
+            {
+                <tr>
+                    <td>@item.Artist</td>
+                    <td>@item.TracksCounted</td>
+                    <td>@item.AverageWordCount.ToString("0.##")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}

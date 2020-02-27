@@ -1,0 +1,20 @@
+﻿@model LyricsCounter.Web.Models.ArtistResultsModel
+
+@{
+    ViewData["Title"] = "ArtistLookupResults";
+}
+
+    <div class="text-center">
+        <h2>Artist Results</h2>
+
+        <p>Select the artist from the results below and we will begin counting their lyrics:</p>
+
+        <dl>
+            @foreach (var item in Model.Artists)
+            {
+                <dt> <a asp-action="LyricsCounter" asp-route-artistName="@item.Name" asp-route-MBId="@item.MBId">@item.Name</a> </dt>
+                <dd>Score: @item.Score</dd>
+            }
+        </dl>
+
+    </div>
