@@ -7,14 +7,21 @@
     <div class="text-center">
         <h2>Artist Results</h2>
 
-        <p>Select the artist from the results below and we will begin counting their lyrics:</p>
+        @if (Model == null)
+        {
+            <p>Sorry no results could be found</p>
+            <a asp-action="ArtistSearch">Click here to try again</a>
+        }
+        else
+        {
+            <p>Select the artist from the results below and we will begin counting their lyrics:</p>
 
-        <dl>
-            @foreach (var item in Model.Artists)
-            {
-                <dt> <a asp-action="LyricsCounter" asp-route-artistName="@item.Name" asp-route-MBId="@item.MBId">@item.Name</a> </dt>
-                <dd>Score: @item.Score</dd>
-            }
-        </dl>
-
+            <dl>
+                @foreach (var item in Model.Artists)
+                {
+                    <dt> <a asp-action="LyricsCounter" asp-route-artistName="@item.Name" asp-route-MBId="@item.MBId">@item.Name</a> </dt>
+                    <dd>Score: @item.Score</dd>
+                }
+            </dl>
+        }
     </div>

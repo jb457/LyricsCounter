@@ -38,7 +38,7 @@ namespace LyricsCounter.Web.Controllers
             var searchResults = await _songLookupService.SearchArtist(model.Artist);
             if (searchResults == null || searchResults.Count == 0)
             {
-                throw new NotImplementedException();
+                return View("ArtistLookupResults", null);
             }
 
             var newModel = new ArtistResultsModel(searchResults);
